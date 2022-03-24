@@ -1,21 +1,31 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
+from flask_cors import CORS
+from src.json_db import JSON_DB as db
+import os
 
-server = Flask(__name__)
+SERVER = Flask(__name__)
+CORS(SERVER)
+DB_PATH = os.path.abspath("./projects.json")
 
 def read_html(filepath):
     html = ""
     with open(filepath) as f:
         html = f.read()
-
     return html
 
-@server.route("/", methods=["GET"])
+@SERVER.route("/", methods=["GET"])
 def index():
     return read_html("./index.html")
 
-@server.route("/", methods=["POST"])
+@SERVER.route("/add-project", methods=["POST"])
 def add_project():
-    return request.form["name"]
+    db.add_project(request.form["name"])
+    return redirect("/")
+
+@SERVER.route("/get-projects", methods=["GET"])
+def get_projects():
+    return db.get_projects()
 
 if __name__ == "__main__":
-    server.run(host="localhost", port=8008)
+    db.connect(DB_PATH)
+    SERVER.run(host="localhost", port=8008)
