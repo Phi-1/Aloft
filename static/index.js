@@ -1,13 +1,26 @@
 // load projects
 let PROJECTS = {}
 const http = new XMLHttpRequest()
-http.open("GET", "http://localhost:8008/get-projects")
+http.open("GET", "http://localhost:7232/get-projects")
 http.send()
 http.onreadystatechange = (e) => {
     if (http.readyState == XMLHttpRequest.DONE) {
         PROJECTS = JSON.parse(http.responseText)["projects"]
+        create_projects_list()
     }
 }
+
+// create projects list
+function create_projects_list() {
+    projects_list = document.querySelector(".nav__list")
+    Object.keys(PROJECTS).forEach((title, i) => {
+        const project = document.createElement("div")
+        project.classList.add("nav__list__item")
+        project.innerText = title
+        projects_list.appendChild(project)
+    })
+}
+
 // Add-project button
 const add_project_button = document.querySelector(".nav__header__button")
 const add_project_prompt = document.querySelector(".add-project-prompt")

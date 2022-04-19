@@ -8,10 +8,8 @@ CORS(SERVER)
 DB_PATH = os.path.abspath("./projects.json")
 
 def read_html(filepath):
-    html = ""
     with open(filepath) as f:
-        html = f.read()
-    return html
+        return f.read()
 
 @SERVER.route("/", methods=["GET"])
 def index():
@@ -28,4 +26,4 @@ def get_projects():
 
 if __name__ == "__main__":
     db.connect(DB_PATH)
-    SERVER.run(host="localhost", port=8008)
+    SERVER.run(host="localhost", port=7232)
