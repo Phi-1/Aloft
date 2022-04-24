@@ -10,6 +10,9 @@
 </head>
 <body>
     <div class="page">
+        <span class="open-menu burger-menu">
+            <span></span><span></span><span></span>
+        </span>
         <div class="add-project-prompt invisible">
             <form action="/add-project" method="post">
                 <label for="name">Project name: </label>
@@ -17,7 +20,7 @@
                 <input type="submit" value="Add">
             </form>
         </div>
-        <nav>
+        <nav class="invisible">
             <header class="nav__header">
                 <h1 class="nav__header__title"><span>Projects</span></h1>
                 <div class="nav__header__button"><img src="static/img/add-project-shadow-pink.svg" alt="add project"></div>
@@ -31,56 +34,31 @@
             <section class="main__header">
                 <h1 class="main__header__title">Project Title</h1>
             </section>
-            <section class="main__body">
-                <ul class="main__body__list">
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                    <li class="main__body__list__item">point 1</li>
-                    <li class="main__body__list__item">HEEEHWHOWHOEHEHEEE</li>
-                    <li class="main__body__list__item">ll</li>
-                </ul>
-                <div class="main__body__input">hello some input</div>
+            <section class="main__list">
+                <div class="main__list__item">hello</div>
+                <div class="main__list__item">reeeeeee</div>
+                <div class="main__list__item">bullshit</div>
+                <div class="main__list__item">dingus</div>
+                <div class="main__list__item">hehHEHEHEH</div>
+                <div class="main__list__item">hello</div>
+                <div class="main__list__item">reeeeeee</div>
+                <div class="main__list__item">bullshit</div>
+                <div class="main__list__item">dingus</div>
+                <div class="main__list__item">hehHEHEHEH</div>
+                <div class="main__list__item">hello</div>
+                <div class="main__list__item">reeeeeee</div>
+                <div class="main__list__item">bullshit</div>
+                <div class="main__list__item">dingus</div>
+                <div class="main__list__item">hehHEHEHEH</div>
+                <div class="main__list__item">hello</div>
+                <div class="main__list__item">reeeeeee</div>
+                <div class="main__list__item">bullshit</div>
+                <div class="main__list__item">dingus</div>
+                <div class="main__list__item">hehHEHEHEH</div>
             </section>
+            <form action="/add-point" method="post" class="main__input">
+                <input type="text" name="new-point" id="new-point" placeholder="Add point" autocomplete="off" required>
+            </form>
         </main>
     </div>
 </body>

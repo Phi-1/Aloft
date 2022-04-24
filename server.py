@@ -24,6 +24,12 @@ def add_project():
 def get_projects():
     return db.get_projects()
 
+@SERVER.route("/add-point", methods=["POST"])
+def add_point():
+    db.add_point(request.form["new-point"])
+    return redirect("/")
+    
+
 if __name__ == "__main__":
     db.connect(DB_PATH)
-    SERVER.run(host="localhost", port=7232)
+    SERVER.run(host="192.168.11.43", port=7232)
