@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect
 from flask_cors import CORS
+from dotenv import load_dotenv
 from src.json_db import JSON_DB as db
 import os
 
@@ -31,5 +32,8 @@ def add_point():
     
 
 if __name__ == "__main__":
+    load_dotenv()
+    SERVER_IP = os.environ.get("SERVER_IP")
+    SERVER_PORT = os.environ.get("SERVER_PORT")
     db.connect(DB_PATH)
-    SERVER.run(host="192.168.11.43", port=7232)
+    SERVER.run(host=SERVER_IP, port=SERVER_PORT)
