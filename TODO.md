@@ -1,0 +1,1 @@
+- page should reopen project after adding a point

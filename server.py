@@ -6,7 +6,6 @@ import os
 
 SERVER = Flask(__name__)
 CORS(SERVER)
-DB_PATH = os.path.abspath("./projects.json")
 
 def read_html(filepath):
     with open(filepath) as f:
@@ -27,7 +26,9 @@ def get_projects():
 
 @SERVER.route("/add-point", methods=["POST"])
 def add_point():
-    db.add_point(request.form["new-point"])
+    if request.form["active-project"] == "":
+        return redirect("/")
+    db.add_point(request.form["active-project"], request.form["new-point"])
     return redirect("/")
     
 
@@ -35,5 +36,6 @@ if __name__ == "__main__":
     load_dotenv()
     SERVER_IP = os.environ.get("SERVER_IP")
     SERVER_PORT = os.environ.get("SERVER_PORT")
+    DB_PATH = os.environ.get("DB_PATH")
     db.connect(DB_PATH)
     SERVER.run(host=SERVER_IP, port=SERVER_PORT)
