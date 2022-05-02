@@ -1,3 +1,5 @@
+import Cookies from "./js.cookie.mjs"
+
 // load projects
 let PROJECTS = {}
 const http = new XMLHttpRequest()
@@ -7,6 +9,9 @@ http.onreadystatechange = (e) => {
     if (http.readyState == XMLHttpRequest.DONE) {
         PROJECTS = JSON.parse(http.responseText)["projects"]
         create_projects_list()
+        if (Cookies.get("active_project")) {
+            set_active_project(Cookies.get("active_project"))
+        }
     }
 }
 
@@ -18,7 +23,7 @@ open_menu_button.addEventListener("click", (event) => {
     nav.classList.toggle("invisible")
 })
 
-// display page
+//// display page
 let active_project = null
 const projects_list = document.querySelector(".nav__list")
 const project_title = document.querySelector(".main__header__title")
@@ -28,6 +33,7 @@ const form_active_project = document.querySelector("#form-active-project")
 function set_active_project(title) {
     active_project = title
     form_active_project.value = title
+    Cookies.set("active_project", title)
     show_active_project()
 }
 
@@ -72,4 +78,12 @@ add_project_button.addEventListener("click", (event) => {
 add_project_prompt.addEventListener("click", (event) => {
     if (event.target !== add_project_prompt) { return }
     add_project_prompt.classList.add("invisible")
+})
+
+// set cookie on new project submit
+const add_project_form = document.querySelector("#add-project")
+const add_project_name = document.querySelector("#name")
+
+add_project_form.addEventListener("submit", (event) => {
+    Cookies.set("active_project", add_project_name.value)
 })

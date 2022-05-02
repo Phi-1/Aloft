@@ -1,1 +1,3 @@
-- page should reopen project after adding a point
+- pretty up main page
+- make font size smaller on phones
+- add delete project button

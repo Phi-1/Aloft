@@ -17,7 +17,8 @@ def index():
 
 @SERVER.route("/add-project", methods=["POST"])
 def add_project():
-    db.add_project(request.form["name"])
+    project_name = request.form["name"]
+    db.add_project(project_name)
     return redirect("/")
 
 @SERVER.route("/get-projects", methods=["GET"])
